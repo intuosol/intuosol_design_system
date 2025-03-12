@@ -1,5 +1,5 @@
 <div style="display: flex; align-items: flex-end;">
-    <img src="https://raw.githubusercontent.com/intuosol/intuosol_design_system/main/assets/dark.png" alt="Icon" width="250" style="margin-right: 10px;">
+    <img src="https://raw.githubusercontent.com/intuosol/intuosol_design_system/main/assets/logos/dark.png" alt="Icon" width="250" style="margin-right: 10px;">
     <h1 style="margin: 0;">IntuoSol Design System</h1>
 </div>
 <br />
