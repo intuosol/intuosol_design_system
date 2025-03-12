@@ -14,7 +14,7 @@ class IntuoSolLogos {
   /// Displays the "by IntuoSol" text logo.
   ///
   /// This logo is typically used in footers or attribution sections.
-  /// 
+  ///
   /// [context] is used to get the default text style if none provided.
   /// [style] can be provided to customize the text appearance.
   static Widget byIntuoSol({required BuildContext context, TextStyle? style}) {
@@ -30,7 +30,7 @@ class IntuoSolLogos {
   /// Displays the standard IntuoSol logo.
   ///
   /// This is the main logo used for branding and app headers.
-  /// 
+  ///
   /// [context] is used to determine the default theme mode.
   /// [dark] can override the theme mode detection if specified.
   /// [height] sets the height of the logo.
@@ -54,7 +54,7 @@ class IntuoSolLogos {
   ///
   /// This variant of the logo fits in square spaces and is used
   /// for icons and places where horizontal space is limited.
-  /// 
+  ///
   /// [context] is used to determine the default theme mode.
   /// [dark] can override the theme mode detection if specified.
   /// [size] sets both the height and width of the logo.
@@ -74,7 +74,7 @@ class IntuoSolLogos {
   /// Displays the IntuoSol app icon.
   ///
   /// This icon is used for app launchers and represents IntuoSol applications.
-  /// 
+  ///
   /// [context] is required for widget tree integration.
   /// [size] sets both the height and width of the icon.
   static Widget appIcon({required BuildContext context, double? size}) =>

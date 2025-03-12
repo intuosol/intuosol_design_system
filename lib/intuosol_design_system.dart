@@ -5,5 +5,6 @@
 library intuosol_design_system;
 
 export 'src/theme/app_theme.dart';
+export 'src/widgets/intuosol_buttons.dart';
 export 'src/widgets/intuosol_dialogs.dart';
 export 'src/widgets/intuosol_logos.dart';

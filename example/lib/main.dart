@@ -35,22 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info),
-            onPressed:
-                () => IntuoSolDialogs.showAboutPackage(
-                  context: context,
-                  packageName: 'IntuoSol Design System',
-                  description:
-                      'A Flutter package for incorporating the IntuoSol Design System into your Flutter app.',
-                  pubDevLink: 'https://pub.dev/packages/intuosol_design_system',
-                ),
-          ),
-        ],
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Center(
@@ -60,13 +45,16 @@ class _MyHomePageState extends State<MyHomePage> {
               IntuoSolLogos.logo(context: context, width: 350.0),
               IntuoSolLogos.squareLogo(context: context, size: 200.0),
               IntuoSolLogos.appIcon(context: context, size: 200.0),
-              IntuoSolLogos.byIntuoSol(
-                context: context,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
             ],
           ),
         ),
+      ),
+      floatingActionButton: IntuoSolButtons.floatingAboutPackage(
+        context: context,
+        packageName: 'IntuoSol Design System',
+        description:
+            'A Flutter package for incorporating the IntuoSol Design System into your Flutter app.',
+        pubDevLink: 'https://pub.dev/packages/intuosol_design_system',
       ),
     );
   }

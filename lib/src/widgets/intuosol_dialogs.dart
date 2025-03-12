@@ -49,7 +49,13 @@ class IntuoSolDialogs {
                 ],
               ),
             ),
-            content: Text(description),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Divider(color: Theme.of(context).colorScheme.outline),
+                Text(description),
+              ],
+            ),
             actions: <Widget>[
               TextButton(
                 child: const Text('View on pub.dev'),
