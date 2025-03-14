@@ -138,7 +138,7 @@ class FrostedAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
               child: AppBar(
-                title: title,
+                title: FittedBox(fit: BoxFit.scaleDown, child: title),
                 actions: actions,
                 leading: leading,
                 automaticallyImplyLeading: automaticallyImplyLeading,

@@ -1,3 +1,9 @@
+## 0.1.1
+
+### Revised
+
+- Revised the FrostedAppBar title and IntuoSolSectionHeader text to scale down to fit smaller screens
+
 ## 0.1.0
 
 ### Added

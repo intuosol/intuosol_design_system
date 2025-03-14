@@ -42,9 +42,12 @@ class IntuoSolSectionHeader extends StatelessWidget {
         children: <Widget>[
           Container(width: 12.0, height: 24.0, color: primaryColor),
           const SizedBox(width: 12.0),
-          Text(
-            title,
-            style: textStyle ?? Theme.of(context).textTheme.headlineSmall,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              title,
+              style: textStyle ?? Theme.of(context).textTheme.headlineSmall,
+            ),
           ),
         ],
       ),
