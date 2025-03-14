@@ -18,14 +18,13 @@ class IntuoSolButtons {
   ///
   /// Parameters:
   /// - [context] Required for theming and for showing the dialog.
-  /// - [packageName] The name of the package to display in the about dialog.
+  /// - [packageName] The name of the package to display in the about dialog, e.g. "intuosol_package".
   /// - [description] A brief description of the package.
   /// - [pubDevLink] Link to the package on pub.dev.
   static Widget floatingAboutPackage({
     required BuildContext context,
     required String packageName,
     required String description,
-    required String pubDevLink,
   }) => FrostedButton(
     style: ButtonStyle(shape: WidgetStateProperty.all(const StadiumBorder())),
     onPressed:
@@ -33,7 +32,6 @@ class IntuoSolButtons {
           context: context,
           packageName: packageName,
           description: description,
-          pubDevLink: pubDevLink,
         ),
     child: IntuoSolLogos.intuosolText(
       context: context,

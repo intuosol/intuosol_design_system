@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return IntuoSolScaffold(
       appBar: AppBar(
         title: IntuoSolLogos.intuosolText(context: context),
-        forceMaterialTransparency: true,
         centerTitle: false,
       ),
       body: SingleChildScrollView(
@@ -57,6 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
+                  onTap:
+                      () =>
+                          RedirectHandler.openPackage('intuosol_design_system'),
                   title: Text(
                     'IntuoSol Design System',
                     style: Theme.of(context).textTheme.headlineSmall,
@@ -85,10 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // Use FrostedFloatingActionButtonExtended directly for the frosted glass effect
       floatingActionButton: IntuoSolButtons.floatingAboutPackage(
         context: context,
-        packageName: 'IntuoSol Design System',
+        packageName: 'intuosol_design_system',
         description:
             'A Flutter package for incorporating the IntuoSol Design System into your Flutter app.',
-        pubDevLink: 'https://pub.dev/packages/intuosol_design_system',
       ),
     );
   }

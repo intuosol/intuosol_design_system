@@ -12,4 +12,15 @@ class RedirectHandler {
       await launchUrl(url);
     }
   }
+
+  /// Opens the IntuoSol website in the default browser or appropriate application.
+  static Future<void> openIntuosolWebsite() => openUrl('https://intuosol.com');
+
+  /// Opens the package in pub.dev for the [packageName].
+  static Future<void> openPackage(String packageName) =>
+      openUrl('https://pub.dev/packages/$packageName');
+
+  /// Opens the package documentation in pub.dev for the [packageName].
+  static Future<void> openPackageDocumentation(String packageName) =>
+      openUrl('https://pub.dev/documentation/$packageName');
 }

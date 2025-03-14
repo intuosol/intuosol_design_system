@@ -28,28 +28,32 @@ class IntuoSolSectionHeader extends StatelessWidget {
     final Color primaryColor =
         accentColor ?? Theme.of(context).colorScheme.primary;
 
-    return Container(
+    return Padding(
       padding: padding,
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: primaryColor.withValues(alpha: 0.5),
-            width: 1.5,
-          ),
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-          Container(width: 12.0, height: 24.0, color: primaryColor),
-          const SizedBox(width: 12.0),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              title,
-              style: textStyle ?? Theme.of(context).textTheme.headlineSmall,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: primaryColor.withValues(alpha: 0.5),
+              width: 1.5,
             ),
           ),
-        ],
+        ),
+        child: Row(
+          children: <Widget>[
+            Container(width: 12.0, height: 24.0, color: primaryColor),
+            const SizedBox(width: 12.0),
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  title,
+                  style: textStyle ?? Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -13,6 +13,11 @@
 /// - Frosted glass UI components for a modern look
 library intuosol_design_system;
 
+// Core dependencies
+export 'package:change_case/change_case.dart';
+
+// Utilities
+export 'src/core/services/redirect_handler.dart';
 // Core theme
 export 'src/theme/app_theme.dart';
 // Main app wrapper and scaffold

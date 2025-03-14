@@ -1,3 +1,18 @@
+## 0.2.0
+
+### Added
+
+- Added URL redirection for IntuoSol website, pub.dev, and package documentation
+- Added and exposed change_case package for case conversion
+
+### Revised
+
+- Exposed RedirectHandler class for handling URL redirection
+
+### Fixed
+
+- Fixed issue with IntuoSolSectionHeader text not scaling down to fit smaller screens
+
 ## 0.1.1
 
 ### Revised
