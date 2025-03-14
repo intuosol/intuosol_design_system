@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/asset_paths.dart';
+import '../../core/constants/asset_paths.dart';
 
 /// A utility class that provides IntuoSol logo widgets.
 ///
@@ -17,10 +17,32 @@ class IntuoSolLogos {
   ///
   /// [context] is used to get the default text style if none provided.
   /// [style] can be provided to customize the text appearance.
-  static Widget byIntuoSol({required BuildContext context, TextStyle? style}) {
-    style ??= Theme.of(context).textTheme.titleMedium!;
+  static Widget byIntuoSolText({
+    required BuildContext context,
+    TextStyle? style,
+  }) {
+    style ??= Theme.of(context).textTheme.titleSmall!;
     return Image.asset(
       AssetPaths.byIntuoSol,
+      height: style.fontSize,
+      color: style.color,
+      package: 'intuosol_design_system',
+    );
+  }
+
+  /// Displays the "IntuoSol" text logo.
+  ///
+  /// This logo is typically used in app headers and attribution sections.
+  ///
+  /// [context] is used to get the default text style if none provided.
+  /// [style] can be provided to customize the text appearance.
+  static Widget intuosolText({
+    required BuildContext context,
+    TextStyle? style,
+  }) {
+    style ??= Theme.of(context).textTheme.titleLarge!;
+    return Image.asset(
+      AssetPaths.textLogo,
       height: style.fontSize,
       color: style.color,
       package: 'intuosol_design_system',

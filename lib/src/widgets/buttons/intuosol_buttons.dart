@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../intuosol_design_system.dart';
+import '../../../intuosol_design_system.dart';
+import '../dialogs/intuosol_dialogs.dart';
 
 /// A collection of IntuoSol branded buttons.
 ///
@@ -26,25 +27,18 @@ class IntuoSolButtons {
     required String packageName,
     required String description,
     required String pubDevLink,
-  }) => Transform.scale(
-    scale: 0.9,
-    child: FloatingActionButton.extended(
-      backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-      extendedPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-      shape: const StadiumBorder(),
-      onPressed:
-          () => IntuoSolDialogs.showAboutPackage(
-            context: context,
-            packageName: packageName,
-            description: description,
-            pubDevLink: pubDevLink,
-          ),
-      label: IntuoSolLogos.byIntuoSol(
-        context: context,
-        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-          color: Theme.of(context).colorScheme.onSecondaryContainer,
+  }) => FrostedButton(
+    style: ButtonStyle(shape: WidgetStateProperty.all(const StadiumBorder())),
+    onPressed:
+        () => IntuoSolDialogs.showAboutPackage(
+          context: context,
+          packageName: packageName,
+          description: description,
+          pubDevLink: pubDevLink,
         ),
-      ),
+    child: IntuoSolLogos.intuosolText(
+      context: context,
+      style: Theme.of(context).textTheme.labelMedium,
     ),
   );
 }

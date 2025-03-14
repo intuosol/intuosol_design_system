@@ -1,3 +1,14 @@
+## 0.1.0
+
+### Added
+
+- Added FrostedButton widget with frosted glass effect
+- Added FrostedAppBar widget with frosted glass background
+- Integrated Oxanium font from Google Fonts as the default typography
+- Enhanced component theming with consistent styles for AppBar, Card, and ListTile
+- Added IntuoSolApp widget that streamlines app creation with the design system
+- Added IntuoSolScaffold that automatically processes AppBars to use the FrostedAppBar
+
 ## 0.0.2
 
 ### Added

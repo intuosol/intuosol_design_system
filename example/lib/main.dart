@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intuosol_design_system/intuosol_design_system.dart';
+import 'package:intuosol_design_system_example/widgets/image_table.dart';
+import 'package:intuosol_design_system_example/widgets/typography_showcase.dart';
 
 /// Example app demonstrating the IntuoSol Design System.
 ///
@@ -14,18 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    // Using IntuoSolApp automatically applies the theme and
+    // makes FrostedAppBar the default AppBar
+    return IntuoSolApp(
+      title: 'IntuoSol Design System Demo',
+      // themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      theme: IntuoSolTheme.darkTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -34,21 +37,52 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+    return IntuoSolScaffold(
+      appBar: AppBar(
+        title: IntuoSolLogos.intuosolText(context: context),
+        forceMaterialTransparency: true,
+        centerTitle: false,
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: Column(
-            spacing: 24.0,
-            children: [
-              IntuoSolLogos.logo(context: context, width: 350.0),
-              IntuoSolLogos.squareLogo(context: context, size: 200.0),
-              IntuoSolLogos.appIcon(context: context, size: 200.0),
-            ],
+        child: Align(
+          alignment: Alignment.center,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 24),
+                ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  title: Text(
+                    'IntuoSol Design System',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  subtitle: Text(
+                    'A Flutter package for incorporating the IntuoSol Design System into your Flutter app.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                const IntuoSolSectionHeader(title: 'IntuoSol Logos'),
+                const SizedBox(height: 16),
+                LogoTable(),
+                const SizedBox(height: 48),
+                const IntuoSolSectionHeader(
+                  title: 'Typography with Oxanium Font',
+                ),
+                const SizedBox(height: 16),
+                const TypographyShowcase(),
+                const SizedBox(height: 48),
+              ],
+            ),
           ),
         ),
       ),
+      // Use FrostedFloatingActionButtonExtended directly for the frosted glass effect
       floatingActionButton: IntuoSolButtons.floatingAboutPackage(
         context: context,
         packageName: 'IntuoSol Design System',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../intuosol_design_system.dart';
-import '../services/redirect_handler.dart';
+import '../../../intuosol_design_system.dart';
+import '../../core/services/redirect_handler.dart';
 
 /// A utility class that provides IntuoSol-branded dialog widgets.
 ///
@@ -43,7 +43,7 @@ class IntuoSolDialogs {
                     spacing: 8.0,
                     children: <Widget>[
                       Text(packageName),
-                      IntuoSolLogos.byIntuoSol(context: context),
+                      IntuoSolLogos.byIntuoSolText(context: context),
                     ],
                   ),
                 ],
