@@ -11,7 +11,6 @@ topics:
   - theme
   - logo
   - typography
-  - fonts
 
 environment:
   sdk: ^3.7.0
