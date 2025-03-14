@@ -140,7 +140,7 @@ class IntuoSolApp extends StatelessWidget {
       onGenerateInitialRoutes: onGenerateInitialRoutes,
       onUnknownRoute: onUnknownRoute,
       navigatorObservers: navigatorObservers,
-      builder: (context, child) {
+      builder: (BuildContext context, Widget? child) {
         // Apply the custom builder if provided
         Widget result = child ?? const SizedBox.shrink();
         if (builder != null) {
@@ -210,7 +210,7 @@ class _ScaffoldInterceptorScope extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Builder(
-      builder: (context) {
+      builder: (BuildContext context) {
         return child;
       },
     );

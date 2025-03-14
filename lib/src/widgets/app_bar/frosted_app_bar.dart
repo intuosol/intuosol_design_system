@@ -222,7 +222,7 @@ extension ScaffoldExtensions on Scaffold {
     }
 
     // Convert the AppBar to FrostedAppBar if needed
-    final PreferredSizeWidget convertedAppBar = (appBar as AppBar)
+    final PreferredSizeWidget convertedAppBar = (appBar! as AppBar)
         .asFrostedIfNeeded(context);
 
     // If no conversion happened, return unchanged

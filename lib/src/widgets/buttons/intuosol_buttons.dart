@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../intuosol_design_system.dart';
-import '../dialogs/intuosol_dialogs.dart';
 
 /// A collection of IntuoSol branded buttons.
 ///
