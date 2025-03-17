@@ -22,10 +22,11 @@ export 'src/core/services/redirect_handler.dart';
 export 'src/theme/app_theme.dart';
 // Main app wrapper and scaffold
 export 'src/widgets/app/intuosol_app.dart';
-// Components
+// Widgets
 export 'src/widgets/app_bar/frosted_app_bar.dart';
 export 'src/widgets/buttons/frosted_button.dart';
 export 'src/widgets/buttons/intuosol_buttons.dart';
+export 'src/widgets/buttons/theme_mode_button.dart';
 export 'src/widgets/dialogs/intuosol_dialogs.dart';
 export 'src/widgets/headers/intuosol_headers.dart';
 export 'src/widgets/logos/intuosol_logos.dart';

@@ -1,3 +1,15 @@
+## 0.3.0
+
+### Added
+
+- Added ThemeModeButton widget for toggling between light and dark themes
+- Added ThemeNotifier to manage theme state throughout the app
+- Integrated ThemeNotifier with IntuoSolApp for automatic theme switching
+
+### Revised
+
+- ThemeMode defaults to dark mode if no initial theme mode is provided
+
 ## 0.2.0
 
 ### Added

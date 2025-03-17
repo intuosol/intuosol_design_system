@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../theme/app_theme.dart';
+import '../../theme/theme_notifier.dart';
 import '../app_bar/frosted_app_bar.dart';
 
 /// A Material App that automatically applies IntuoSol's design system.
@@ -9,6 +11,7 @@ import '../app_bar/frosted_app_bar.dart';
 /// - Applies the IntuoSol theme
 /// - Uses FrostedAppBar as the default AppBar
 /// - Provides consistent styling across all IntuoSol apps
+/// - Manages theme switching with ThemeNotifier for easy dark/light mode toggling
 class IntuoSolApp extends StatelessWidget {
   /// Creates an IntuoSol-themed application.
   ///
@@ -26,8 +29,7 @@ class IntuoSolApp extends StatelessWidget {
     this.builder,
     this.title = '',
     this.onGenerateTitle,
-    this.theme,
-    this.themeMode = ThemeMode.system,
+    this.themeMode,
     this.locale,
     this.localizationsDelegates,
     this.localeListResolutionCallback,
@@ -78,11 +80,8 @@ class IntuoSolApp extends StatelessWidget {
   /// {@macro flutter.material.materialApp.onGenerateTitle}
   final GenerateAppTitle? onGenerateTitle;
 
-  /// Optional custom theme - if not provided, IntuoSolTheme will be used
-  final ThemeData? theme;
-
   /// {@macro flutter.material.materialApp.themeMode}
-  final ThemeMode themeMode;
+  final ThemeMode? themeMode;
 
   /// {@macro flutter.material.materialApp.locale}
   final Locale? locale;
@@ -131,46 +130,54 @@ class IntuoSolApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      home: home,
-      routes: routes,
-      initialRoute: initialRoute,
-      onGenerateRoute: onGenerateRoute,
-      onGenerateInitialRoutes: onGenerateInitialRoutes,
-      onUnknownRoute: onUnknownRoute,
-      navigatorObservers: navigatorObservers,
-      builder: (BuildContext context, Widget? child) {
-        // Apply the custom builder if provided
-        Widget result = child ?? const SizedBox.shrink();
-        if (builder != null) {
-          result = builder!(context, result);
-        }
+    return ChangeNotifierProvider<ThemeNotifier>.value(
+      value: ThemeNotifier(themeMode ?? ThemeMode.dark),
+      child: Consumer<ThemeNotifier>(
+        builder: (BuildContext context, ThemeNotifier themeNotifier, _) {
+          return MaterialApp(
+            navigatorKey: navigatorKey,
+            home: home,
+            routes: routes,
+            initialRoute: initialRoute,
+            onGenerateRoute: onGenerateRoute,
+            onGenerateInitialRoutes: onGenerateInitialRoutes,
+            onUnknownRoute: onUnknownRoute,
+            navigatorObservers: navigatorObservers,
+            builder: (BuildContext context, Widget? child) {
+              // Apply the custom builder if provided
+              Widget result = child ?? const SizedBox.shrink();
+              if (builder != null) {
+                result = builder!(context, result);
+              }
 
-        // Apply AppBar style injection through a scope that will be detected
-        return AppBarOverrideScope(child: _ScaffoldInterceptor(child: result));
-      },
-      title: title,
-      onGenerateTitle: onGenerateTitle,
-      // Use provided theme or default to IntuoSolTheme
-      theme: theme ?? IntuoSolTheme.lightTheme,
-      darkTheme: IntuoSolTheme.darkTheme,
-      themeMode: themeMode,
-      locale: locale,
-      localizationsDelegates: localizationsDelegates,
-      localeListResolutionCallback: localeListResolutionCallback,
-      localeResolutionCallback: localeResolutionCallback,
-      supportedLocales: supportedLocales,
-      debugShowMaterialGrid: debugShowMaterialGrid,
-      showPerformanceOverlay: showPerformanceOverlay,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-      showSemanticsDebugger: showSemanticsDebugger,
-      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
-      restorationScopeId: restorationScopeId,
-      scrollBehavior: scrollBehavior,
+              // Apply AppBar style injection through a scope that will be detected
+              return AppBarOverrideScope(
+                child: _ScaffoldInterceptor(child: result),
+              );
+            },
+            title: title,
+            onGenerateTitle: onGenerateTitle,
+            theme: IntuoSolTheme.lightTheme,
+            darkTheme: IntuoSolTheme.darkTheme,
+            themeMode: themeNotifier.themeMode,
+            locale: locale,
+            localizationsDelegates: localizationsDelegates,
+            localeListResolutionCallback: localeListResolutionCallback,
+            localeResolutionCallback: localeResolutionCallback,
+            supportedLocales: supportedLocales,
+            debugShowMaterialGrid: debugShowMaterialGrid,
+            showPerformanceOverlay: showPerformanceOverlay,
+            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+            showSemanticsDebugger: showSemanticsDebugger,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            shortcuts: shortcuts,
+            actions: actions,
+            restorationScopeId: restorationScopeId,
+            scrollBehavior: scrollBehavior,
+          );
+        },
+      ),
     );
   }
 }

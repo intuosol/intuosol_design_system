@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
     // makes FrostedAppBar the default AppBar
     return IntuoSolApp(
       title: 'IntuoSol Design System Demo',
-      // themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
@@ -41,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: IntuoSolLogos.intuosolText(context: context),
         centerTitle: false,
+        actions: [ThemeModeButton()],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
